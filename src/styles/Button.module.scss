@@ -1,0 +1,6 @@
+@import "./variables";
+
+.button {
+  @extend %buttonDefault;
+  font-size: rem(24);
+}

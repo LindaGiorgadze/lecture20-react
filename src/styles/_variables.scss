@@ -1,0 +1,32 @@
+$colorTextMain: rgba(black, 0.88);
+$colorTextSecondary: rgba(grey, 0.88);
+
+$defaultBgColor: bisque;
+$warning: yellow;
+$error: red;
+
+// mixins
+
+@mixin button($type: $defaultBgColor) {
+  background-color: $type;
+  color: $colorTextMain;
+  border-radius: 10px;
+  width: 250px;
+  height: 150px;
+}
+
+%buttonDefault {
+  @include button;
+}
+
+%buttonWarning {
+  @include button($type: $warning);
+}
+
+%buttonError {
+  @include button($type: $error);
+}
+
+@function rem($num) {
+  @return #{calc($num / 16)}rem;
+}
