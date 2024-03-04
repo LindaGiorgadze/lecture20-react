@@ -4,3 +4,8 @@
   @extend %buttonDefault;
   font-size: rem(24);
 }
+
+.TodoButton {
+  width: fit-content;
+  height: 50px;
+}

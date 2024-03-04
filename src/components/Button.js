@@ -1,10 +1,10 @@
 import styles from "../styles/Button.module.scss";
 
-const Button = ({ ...props }) => {
-  console.log(props.className);
+const Button = ({ text, ...props }) => {
+  
   return (
     <button {...props} className={`${styles.button} ${props.className || ""}`}>
-      Button
+      {text || "Button"}
     </button>
   );
 };
