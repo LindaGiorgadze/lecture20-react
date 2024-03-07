@@ -1,0 +1,20 @@
+.App-header {
+  padding: 40px 20px;
+  ul {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin: 0 auto;
+    .navItem {
+      color: white;
+      font-size: 22px;
+      padding: 5px 10px;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+    .active {
+      background-color:brown;
+      text-decoration: underline;
+    }
+  }
+}
