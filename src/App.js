@@ -1,14 +1,22 @@
-// import { ReactComponent as Logo } from "./logo.svg";
+import { useState } from "react";
 import "./App.scss";
+import ThemeContext from "./Contexts/ThemeContext";
 import AuthRoutes from "./components/Routes/AuthRoutes";
 import PublicRoutes from "./components/Routes/PublicRoutes";
+import AuthContext from "./Contexts/AuthContext";
 
 function App() {
-  const isAuthorized = true;
+  const [theme, setTheme] = useState("light");
+  const [user, setUser] = useState(null);
+
   return (
-    <div className="App container">
-      {isAuthorized ? <PublicRoutes /> : <AuthRoutes />}
-    </div>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <AuthContext.Provider value={{ user, setUser }}>
+        <div className={`App container  ${theme} `}>
+          {user ? <PublicRoutes /> : <AuthRoutes />}
+        </div>
+      </AuthContext.Provider>
+    </ThemeContext.Provider>
   );
 }
 

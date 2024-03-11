@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "https://dummyjson.com";
+export const baseUrl = "https://dummyjson.com";
 
 export default async function request(endPoint, id) {
   return await axios

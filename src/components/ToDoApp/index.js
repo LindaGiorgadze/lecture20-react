@@ -1,34 +1,22 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Button from "../Button";
 import styles from "../../styles/Button.module.scss";
 import Input from "../Input";
 
 const ToDoApp = () => {
-  const toDoList = [
-    {
-      id: 1,
-      text: "lorem",
-      checked: false
-    },
-    {
-      id: 2,
-      text: "lorem 2",
-      checked: true
-    },
-    {
-      id: 3,
-      text: "lorem 3",
-      checked: false
-    }
-  ];
+  const mainInputRef = useRef();
+
   const [list, setList] = useState(
     JSON.parse(sessionStorage.getItem("list")) || []
   );
   const [value, setValue] = useState("");
 
   useEffect(() => {
+    mainInputRef?.current?.focus();
+  }, [mainInputRef]);
+
+  useEffect(() => {
     sessionStorage.setItem("list", JSON.stringify(list));
-    console.log(list);
   }, [list]);
 
   const handleSubmit = (e) => {
@@ -40,6 +28,7 @@ const ToDoApp = () => {
     };
     value && setList([...list, newItem]);
     setValue("");
+    mainInputRef?.current?.focus();
   };
 
   const handleCheck = (e) => {
@@ -61,7 +50,11 @@ const ToDoApp = () => {
       <h2>To Do App</h2>
       <form action="" onSubmit={handleSubmit}>
         <div>
-          <Input initialValue={value} changeInitialValue={setValue} />
+          <Input
+            initialValue={value}
+            changeInitialValue={setValue}
+            ref={mainInputRef}
+          />
           <Button
             type="submit"
             text="Add To Do Item"

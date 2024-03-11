@@ -13,8 +13,12 @@
       text-decoration: none;
     }
     .active {
-      background-color:brown;
+      background-color: brown;
       text-decoration: underline;
     }
   }
+}
+
+.light ul .navItem {
+  color: #282c34;
 }
