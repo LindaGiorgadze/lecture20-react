@@ -1,16 +1,9 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import request from "../../components/utils/request";
+import useProducts from "../../serviceHooks/useProducts";
 
 const CurrentProduct = () => {
   const { id } = useParams();
-
-  const [product, setProduct] = useState();
-  useEffect(() => {
-    request("products", id).then((data) => {
-      setProduct(data);
-    });
-  }, []);
+  const { data: product } = useProducts(id);
 
   return (
     <div>

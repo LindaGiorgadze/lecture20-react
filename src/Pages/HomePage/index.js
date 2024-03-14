@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap";
 
 const HomePage = () => {
   const { theme, setTheme } = useContext(ThemeContext);
-  console.log(theme);
+
   return (
     <div>
       <h1>Home Page</h1>
