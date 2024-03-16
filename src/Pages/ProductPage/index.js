@@ -12,9 +12,9 @@ const ProductPage = () => {
       <h1>Product Page</h1>
       <ul>
         {isLoading ? (
-          <div class="d-flex align-items-center">
+          <div className="d-flex align-items-center">
             <div
-              class="spinner-border ml-auto"
+              className="spinner-border ml-auto"
               role="status"
               aria-hidden="true"
             ></div>

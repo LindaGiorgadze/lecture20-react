@@ -1,18 +1,50 @@
 import { Route, Routes } from "react-router-dom";
 import Layout from "../Layouts";
-import HomePage from "../../Pages/HomePage";
-import ProductPage from "../../Pages/ProductPage";
 import ContactPage from "../../Pages/ContactPage";
-import CurrentProduct from "../../Pages/ProductPage/CurrentProduct";
+import React from "react";
+
+const HomePage = React.lazy(() => import("../../Pages/HomePage"));
+const ProductPage = React.lazy(() => import("../../Pages/ProductPage"));
+const CurrentProduct = React.lazy(() =>
+  import("../../Pages/ProductPage/CurrentProduct")
+);
 
 const PublicRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<HomePage />} />
-        <Route path="products" element={<ProductPage />} />
-        <Route path="products/:id" element={<CurrentProduct />} />
-        <Route path="products/:title/:id" element={<CurrentProduct />} />
+        <Route
+          index
+          element={
+            <React.Suspense fallback={<p>Loading package location...</p>}>
+              <HomePage />
+            </React.Suspense>
+          }
+        />
+        <Route
+          path="products"
+          element={
+            <React.Suspense fallback={<p>Loading package location...</p>}>
+              <ProductPage />
+            </React.Suspense>
+          }
+        />
+        <Route
+          path="products/:id"
+          element={
+            <React.Suspense fallback={<p>Loading package location...</p>}>
+              <CurrentProduct />
+            </React.Suspense>
+          }
+        />
+        <Route
+          path="products/:title/:id"
+          element={
+            <React.Suspense fallback={<p>Loading package location...</p>}>
+              <CurrentProduct />
+            </React.Suspense>
+          }
+        />
         <Route path="contact" element={<ContactPage />} />
         <Route path={"*"} element={<div>Error</div>} />
       </Route>

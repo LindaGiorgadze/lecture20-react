@@ -8,7 +8,7 @@ const Input = forwardRef(({ initialValue, changeInitialValue }, ref) => {
 
   useEffect(() => {
     changeInitialValue(value);
-  }, [value]);
+  }, [value, changeInitialValue]);
 
   return (
     <>
