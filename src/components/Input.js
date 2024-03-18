@@ -1,4 +1,4 @@
-import { forwardRef, useEffect, useState } from "react";
+import { forwardRef, memo, useEffect, useState } from "react";
 
 const Input = forwardRef(({ initialValue, changeInitialValue }, ref) => {
   const [value, setValue] = useState(initialValue);
@@ -22,4 +22,4 @@ const Input = forwardRef(({ initialValue, changeInitialValue }, ref) => {
     </>
   );
 });
-export default Input;
+export default memo(Input);

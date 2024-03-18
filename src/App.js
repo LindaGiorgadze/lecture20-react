@@ -58,7 +58,7 @@ function App() {
       <ThemeContext.Provider value={{ theme, setTheme }}>
         <AuthContext.Provider value={{ user, setUser }}>
           <div className={`App container  ${theme} `}>
-            {user ? <PublicRoutes /> : <AuthRoutes />}
+            {!user ? <PublicRoutes /> : <AuthRoutes />}
           </div>
         </AuthContext.Provider>
       </ThemeContext.Provider>

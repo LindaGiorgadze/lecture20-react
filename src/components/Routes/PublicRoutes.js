@@ -4,6 +4,7 @@ import ContactPage from "../../Pages/ContactPage";
 import React from "react";
 
 const HomePage = React.lazy(() => import("../../Pages/HomePage"));
+const Calculator = React.lazy(() => import("../../Pages/Calculator"));
 const ProductPage = React.lazy(() => import("../../Pages/ProductPage"));
 const CurrentProduct = React.lazy(() =>
   import("../../Pages/ProductPage/CurrentProduct")
@@ -18,6 +19,14 @@ const PublicRoutes = () => {
           element={
             <React.Suspense fallback={<p>Loading package location...</p>}>
               <HomePage />
+            </React.Suspense>
+          }
+        />
+        <Route
+          path="calculator"
+          element={
+            <React.Suspense fallback={<p>Loading package location...</p>}>
+              <Calculator />
             </React.Suspense>
           }
         />
